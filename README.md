@@ -1,4 +1,6 @@
 # FastMekan
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 Sistema para gerenciamento de uma oficina mecânica
 
 O sistema proposto pela a equipe será de uma oficina de carros, motos e caminhões, em que ele terá como funções iniciais os seguintes pontos:
