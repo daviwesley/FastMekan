@@ -1,5 +1,5 @@
 # FastMekan
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](img/mechanic.png)
 
 Sistema para gerenciamento de uma oficina mecânica
 
