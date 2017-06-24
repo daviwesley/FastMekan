@@ -121,7 +121,9 @@ public class TelaLogin extends Dialog {
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				System.exit(1);
+				TelaCadastro tela = new TelaCadastro(Display.getCurrent());
+				tela.open();
+				shlLoginFastmekan.setVisible(false);			
 			}
 		});
 		btnNewButton_1.setBounds(242, 151, 75, 25);
