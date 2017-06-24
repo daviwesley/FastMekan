@@ -4,7 +4,6 @@ import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Monitor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
@@ -14,6 +13,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.widgets.Link;
 
 public class TelaLogin extends Dialog {
 
@@ -57,12 +57,12 @@ public class TelaLogin extends Dialog {
 		shlLoginFastmekan.setImage(SWTResourceManager.getImage("img\\mechanic.png"));
 		shlLoginFastmekan.setSize(450, 300);
 		shlLoginFastmekan.setText("Login - FastMekan");
-		//Centraliza a janela ;
-	        Rectangle bounds = Display.getCurrent().getBounds();
-	        Rectangle rect = shlLoginFastmekan.getBounds();
-	        int x = bounds.x + (bounds.width - rect.width) / 2;
-	        int y = bounds.y + (bounds.height - rect.height) / 2;
-	        shlLoginFastmekan.setLocation(x, y);
+		//Monitor primary = ;
+	    Rectangle bounds = Display.getCurrent().getBounds();
+	    Rectangle rect = shlLoginFastmekan.getBounds();
+	    int x = bounds.x + (bounds.width - rect.width) / 2;
+	    int y = bounds.y + (bounds.height - rect.height) / 2;
+	    shlLoginFastmekan.setLocation(x, y);
 		
 		Label imgLogo = new Label(shlLoginFastmekan, SWT.NONE);
 		imgLogo.setImage(SWTResourceManager.getImage("img\\mechanic.png"));
@@ -81,10 +81,9 @@ public class TelaLogin extends Dialog {
 		infoLabel.setBounds(106, 246, 269, 15);
 		
 		text = new Text(shlLoginFastmekan, SWT.BORDER);
-		text.setBounds(159, 90, 158, 21);
+		text.setBounds(159, 90, 169, 21);
 		
 		text_1 = new Text(shlLoginFastmekan, SWT.BORDER | SWT.PASSWORD);
-		//Tecla ENTER dispara a verificação do login
 		text_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -93,23 +92,24 @@ public class TelaLogin extends Dialog {
 						infoLabel.setText("Login efetuado com sucesso!");
 						infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN));
 					}else{
-						infoLabel.setText("Usuário/Senha incorretos!");
+						infoLabel.setText("Usu�rio/Senha incorretos!");
 						infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 					}
 				}
 			}
 		});
-		text_1.setBounds(159, 124, 158, 21);
+		text_1.setBounds(159, 124, 169, 21);
 		
 		Button btnNewButton = new Button(shlLoginFastmekan, SWT.NONE);
-		//Verificação de Login
+		btnNewButton.setImage(SWTResourceManager.getImage("C:\\Users\\Davi Wesley\\workspace\\FastMekan\\img\\success.png"));
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				if(text.getText().matches("davi") && text_1.getText().matches("123456")){
 					infoLabel.setText("Login efetuado com sucesso!");
+					infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN));
 				}else{
-					infoLabel.setText("Usuário/Senha incorretos!");
+					infoLabel.setText("Usu�rio/Senha incorretos!");
 					infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 				}
 			}
@@ -118,16 +118,28 @@ public class TelaLogin extends Dialog {
 		btnNewButton.setText("Logar");
 		
 		Button btnNewButton_1 = new Button(shlLoginFastmekan, SWT.NONE);
+		btnNewButton_1.setImage(SWTResourceManager.getImage("C:\\Users\\Davi Wesley\\workspace\\FastMekan\\img\\error (1).png"));
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				TelaCadastro tela = new TelaCadastro(Display.getCurrent());
-				tela.open();
-				shlLoginFastmekan.setVisible(false);			
+				//CadastroCliente tela = new CadastroCliente(Display.getCurrent());
+				System.exit(1);
 			}
 		});
-		btnNewButton_1.setBounds(242, 151, 75, 25);
+		btnNewButton_1.setBounds(240, 151, 88, 25);
 		btnNewButton_1.setText("Cancelar");
+		
+		Link link = new Link(shlLoginFastmekan, SWT.NONE);
+		link.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				CadastroUsuario c = new CadastroUsuario(Display.getCurrent());
+				c.open();
+				
+			}
+		});
+		link.setBounds(10, 246, 65, 15);
+		link.setText("<a>Cadastrar usu\u00E1rio</a>");
 		
 		
 
