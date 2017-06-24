@@ -5,27 +5,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 public class TelaCadastro extends Shell {
-
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public void open(String args[]) {
-		try {
-			Display display = Display.getDefault();
-			TelaCadastro shell = new TelaCadastro(display);
-			shell.open();
-			shell.layout();
-			while (!shell.isDisposed()) {
-				if (!display.readAndDispatch()) {
-					display.sleep();
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * Create the shell.
 	 * @param display
