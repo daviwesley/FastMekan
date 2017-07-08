@@ -1,0 +1,47 @@
+-- View: carros_russas
+
+-- DROP VIEW carros_russas;
+
+CREATE OR REPLACE VIEW carros_russas AS 
+ SELECT automovel.marca, automovel.modelo
+   FROM automovel
+  WHERE (automovel.cpfc::text IN ( SELECT cliente.cpf
+           FROM cliente
+          WHERE cliente.cidade::text = 'Russas'::text));
+
+ALTER TABLE carros_russas
+  OWNER TO postgres;
+-- Esta visão é para mostrar apenas os carros registrados em Russas
+------------------------------------------------------------------------------------------------------------------------------
+-- View: basicofuncionario
+
+-- DROP VIEW basicofuncionario;
+
+CREATE OR REPLACE VIEW basicofuncionario AS 
+ SELECT funcionario.nome, funcionario.telefone, funcionario.cargo
+   FROM funcionario;
+
+ALTER TABLE basicofuncionario
+  OWNER TO postgres;
+-- Essa visão é para deixar seguro os dados importantes.
+
+
+
+
+
+
+-- View: atendimento_servico
+
+-- DROP VIEW atendimento_servico;
+
+CREATE OR REPLACE VIEW atendimento_servico AS 
+ SELECT DISTINCT oficina.nome, cliente.nome AS cliente, automovel.modelo, 
+    servico.nome AS servico, servico.valor, funcionario.nome AS funcionario
+   FROM cliente, automovel, servico, atendimento, funcionario, oficina
+  WHERE cliente.cpf::text = automovel.cpfc::text AND cliente.cpf::text = atendimento.cpfc::text AND atendimento.id_servico = servico.id AND atendimento.cpff::text = funcionario.cpf::text;
+
+ALTER TABLE atendimento_servico
+  OWNER TO postgres;
+
+-- Esta é uma visão que seria como se fosse um relatório, mostrando informações do cliente, serviço requisitado por ele, e o funcionário que atendeu o serviço
+

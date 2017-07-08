@@ -1,0 +1,210 @@
+-- Insertion Funcionario
+
+insert into funcionario values('Gutenberg Filho','043.073.153-16',996452414,'Gutenga','1234','Supervisor',null);
+
+insert into funcionario values('Davi Wesley','487.427.593-08',999001122,'Davi','03456','Supervisor',null);
+
+insert into funcionario values('Augusto Cesar','154.184.263-27',996382055,'Jrcesar','12345','Mecanico','043.073.153-16');
+
+insert into funcionario values('Icaro Azrael','265.295.374-38',997138601,'Icaro','3456','Mecanico','043.073.153-16');
+
+insert into funcionario values('Bruno Roberto','376.306.483-49',999285790,'Brunim','4567','Mecanico','043.073.153-16');
+
+insert into funcionario values('Victor Alencar','486.417.593-50',997025155,'alencar','5678','Mecanico','487.427.593-08');
+
+insert into funcionario values('Iago Almeida','597.528.604-61',996360006,'iaguinho','6789','Mecanico','487.427.593-08');
+
+insert into funcionario values('Pimenta Neto','608.639.713-72',999290209,'pimenta','7890','Mecanico','487.427.593-08');
+
+insert into funcionario values('Miguel Matias Neto','719.740.823-82',996261926,'miguelp2','8902','Mecanico','487.427.593-08');
+
+insert into funcionario values('Abner Carvalho','820.851.953-93',999290209,'pimenta','8901','Mecanico','487.427.593-08');
+
+---------------------------------------------------------------------------------------------------------------------------
+
+-- Insertion Cliente
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('164.285.273-37',999126392, 'Alice Sombra','alicesombrar@gmail.com','Rua Coronel Araujo Lima', 'Centro', 'Russas');
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('376.306.483-58',999126392, 'Marilene Almeida','marilenealmeida01@gmail.com','Rua Coronel Perdigao Sobrinho', 'Centro', 'Russas');     
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('497.518.503-60',996979271, 'Francisco Gutenberg','fcogutenberg@gmail.com','Rua Tiburcio Pereira', 'Cajazeiras', 'Fortaleza');
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('609.720.713-81',987041876, 'Joaquim Costa','joacascosta@gmail.com','Rua Daltro Holanda', 'Centro', 'Russas');
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('810.830.913-11',997403020, 'Tessio Ribeiro','tessioribeiro@gmail.com','Rua Dr Luiz Nogueira', 'Centro', 'Russas');
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('914.873.063-43',997423124, 'Iara Sombra','iarasombra@gmail.com','Rua Coronel Araujo Lima', 'Centro', 'Russas');
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('350.642.363-14',997564233, 'Tinaly Ribeiro','tinalyribeiro@gmail.com','Rua Dr Luiz Nogueira', 'Centro', 'Russas');
+
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('754.352.863-31',999363427, 'Gerlania Rocha','gerlania@gmail.com','Travessa Bruno Empaminondas', 'Centro', 'Russas');
+
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('784.552.993-33',999382788, 'Whindersson Nunes','whinderssonnunes@gmail.com','Rua dos bobos', 'Centro', 'Bom Jesus');
+
+
+INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
+    VALUES ('493.633.343-93',999212376, 'Cinara Rabelo','cinararabelo@gmail.com','Rua Coronel Perdigão Sobrinho', 'Centro', 'Russas');
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Insertion Servico
+
+INSERT INTO servico(nome, valor)
+    VALUES ('Alinhamento', 20);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Balanceamento', 33);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Mecanica Geral', 40);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Limpeza de ar condicionado', 20);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Trocas de óleos e filtros', 35);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Serviços Elétricos', 27.5);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Injeção Eletrônica', 60);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Elétrica Geral', 51.75);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Pneus', 63.25);
+
+INSERT INTO servico(nome, valor)
+    VALUES ( 'Cambagem e Caster', 70);
+
+
+------------------------------------------------------------------------
+
+--Insert atendimento
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('265.295.374-38','497.518.503-60', 1, '21/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('719.740.823-82','497.518.503-60', 1, '23/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('043.073.153-16','164.285.273-37', 1, '19/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('487.427.593-08','376.306.483-58', 3, '02/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('154.184.263-27','754.352.863-31', 4, '07/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('376.306.483-49','609.720.713-81', 7, '13/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('486.417.593-50','810.830.913-11', 2, '26/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('597.528.604-61','914.873.063-43', 8, '19/06/2017');
+
+INSERT INTO atendimento(
+            cpff, cpfc, id_servico, data_atendimento)
+    VALUES ('608.639.713-72','350.642.363-14', 9, '15/06/2017');
+
+-----------------------------------------------------------------
+
+-- Insertion Automovel
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('164.285.273-37','GPE-4232' ,2012, 'Mitsubishi', 'Pajero');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('376.306.483-58', 'NBZ-3732',2013, 'Mitsubishi', 'L200 Triton O');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('497.518.503-60', 'AKO-5089',2016, 'Hyundai', 'HB20');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('609.720.713-81','KIL-0918' ,2014, 'Fiat', 'Palio');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('810.830.913-11','NEU-6765' ,2017, 'Fiat', 'Strada Working');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('914.873.063-43','MPM-6386' ,2015, 'Fiat', 'Siena');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('350.642.363-14', 'HPW-4862',2011,'VolksWagen', 'Gol City');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('754.352.863-31', 'KIQ-0363',2016, 'Fiat', 'Uno');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('784.552.993-33','MNT-7634' ,2015, 'VolksWagen', 'Golf ');
+
+INSERT INTO automovel(
+            cpfc, placa, ano, marca, modelo)
+    VALUES ('493.633.343-93', 'JVT-3439',2017, 'Porsche', '911 Carrera Coup');
+
+------------------------------------------------------------------------------------
+
+-- Insertion Oficina
+
+INSERT INTO oficina(
+            cnpj, nome)
+    VALUES ('65.543.524/0001-74', 'CAR-TECH.MANUTENÇÃO VEICULAR LTDA');
+
+-------------------------------------------------------------------------------------
+
+--Insertion Telefone
+
+INSERT INTO telefone_oficina(
+            cnpjoficina, telefone)
+    VALUES ('65.543.524/0001-74',34110818);
+
+INSERT INTO telefone_oficina(
+            cnpjoficina, telefone)
+    VALUES ('65.543.524/0001-74',34111249);
+
+INSERT INTO telefone_oficina(
+            cnpjoficina, telefone)
+    VALUES ('65.543.524/0001-74',34111349);
+
+---------------------------------------------------------
+

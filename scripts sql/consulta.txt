@@ -1,0 +1,16 @@
+--Nome do cliente, id e data de atendimento feita pelo Funcionario Augusto Cesar.
+
+select distinct cliente.nome,id_servico,data_atendimento from funcionario inner join (atendimento inner join cliente on cpfc=cpf) on funcionario.cpf=cpff where cpff in(select cpf from funcionario where nome='Augusto Cesar') 
+
+--Nome de todos os funcionarios que atenderam ao serviço Alinhamento
+
+select distinct funcionario.nome from (atendimento full outer join servico on id_servico=id) full outer join funcionario on cpf=cpff where servico.nome='Alinhamento'
+
+--Media de Gastos por servico
+select distinct nome,avg(valor) from atendimento inner join servico on id_servico=id group by nome
+
+-- Nome dos serviços que foram realizados mais de 3 vezes 
+select distinct nome,count(*) from atendimento natural join servico where id_servico = id group by nome having count(*) > 3
+
+--Nome e carro do cliente e id do serviço que foram realizado entre os dias 05/06 e 15/06
+select distinct cliente.nome,modelo,id_servico from automovel natural join (atendimento inner join cliente on cpf=cpfc) where data_Atendimento between '2017-06-05' and '2017-06-15'

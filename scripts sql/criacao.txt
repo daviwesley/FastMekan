@@ -1,0 +1,141 @@
+-- Table: funcionario
+
+-- DROP TABLE funcionario;
+-- Table: cliente
+
+-- DROP TABLE cliente;
+
+CREATE TABLE cliente
+(
+  cpf character varying(11) NOT NULL,
+  telefone integer,
+  nome character varying(30),
+  email character varying(60),
+  id serial not null,
+  rua character varying(30),
+  bairro character varying(30),
+  cidade character varying(30),
+  CONSTRAINT cliente_pkey PRIMARY KEY (cpf)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE cliente
+  OWNER TO postgres;
+  
+CREATE TABLE funcionario
+(
+  nome character varying(30),
+  cpf character varying(14) NOT NULL,
+  telefone integer,
+  login character varying(30),
+  senha character varying(30),
+  cargo character varying(20),
+  cpfsupervisor character varying(14),
+  CONSTRAINT funcionario_pkey PRIMARY KEY (cpf),
+  CONSTRAINT funcionario_cpfsurpevisor_fkey FOREIGN KEY (cpfsupervisor)
+      REFERENCES funcionario (cpf) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE funcionario
+  OWNER TO postgres;
+
+
+-- Table: automovel
+
+-- DROP TABLE automovel;
+
+CREATE TABLE automovel
+(
+  cpfc character varying(30),
+  placa integer NOT NULL,
+  ano integer,
+  marca character varying(30),
+  modelo character varying(30),
+  chassi character varying(30),
+  CONSTRAINT automovel_pkey PRIMARY KEY (placa),
+  CONSTRAINT automovel_cpfc_fkey FOREIGN KEY (cpfc)
+      REFERENCES cliente (cpf) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE automovel
+  OWNER TO postgres;
+
+-- Table: atendimento
+
+-- DROP TABLE atendimento;
+
+CREATE TABLE atendimento
+(
+  cpff character varying(30),
+  cpfc character varying(30),
+  id_servico integer,
+  data_atendimento date,
+  CONSTRAINT atendimento_cpfc_fkey FOREIGN KEY (cpfc)
+      REFERENCES cliente (cpf) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT atendimento_cpff_fkey FOREIGN KEY (cpff)
+      REFERENCES funcionario (cpf) MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE atendimento
+  OWNER TO postgres;
+
+-- Table: oficina
+
+-- DROP TABLE oficina;
+
+CREATE TABLE oficina
+(
+  cnpj character varying(60),
+  nome character varying(60)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE oficina
+  OWNER TO postgres;
+
+-- Table: servico
+
+-- DROP TABLE servico;
+
+CREATE TABLE servico
+(
+  id serial NOT NULL,
+  nome character varying(30),
+  valor double precision
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE servico
+  OWNER TO postgres;
+
+
+-- Table: telefone_oficina
+
+-- DROP TABLE telefone_oficina;
+
+CREATE TABLE telefone_oficina
+(
+  cnpjoficina character varying(30),
+  telefone integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE telefone_oficina
+  OWNER TO postgres;
+
+
+
