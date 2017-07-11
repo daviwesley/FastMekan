@@ -7,7 +7,7 @@
 
 CREATE TABLE cliente
 (
-  cpf character varying(11) NOT NULL,
+  cpf character varying(14) NOT NULL,
   telefone integer,
   nome character varying(30),
   email character varying(60),
@@ -51,7 +51,7 @@ ALTER TABLE funcionario
 CREATE TABLE automovel
 (
   cpfc character varying(30),
-  placa integer NOT NULL,
+  placa character varying(7) NOT NULL,
   ano integer,
   marca character varying(30),
   modelo character varying(30),
