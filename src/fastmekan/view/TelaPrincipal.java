@@ -97,6 +97,13 @@ public class TelaPrincipal extends Shell {
 		mntmAjuda.setMenu(menu_2);
 		
 		MenuItem mntmSobre = new MenuItem(menu_2, SWT.NONE);
+		mntmSobre.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				new TelaSobre(new Shell(),1).open();
+			}
+		});
+		mntmSobre.setImage(SWTResourceManager.getImage(TelaPrincipal.class, "/toolbar/question.png"));
 		mntmSobre.setText("Sobre");
 		
 		TabFolder tabFolder = new TabFolder(this, SWT.NONE);
