@@ -55,11 +55,7 @@ INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
 
 
 INSERT INTO cliente(cpf, telefone, nome, email, rua, bairro, cidade)
-    VALUES ('493.633.343-93',999212376, 'Cinara Rabelo','cinararabelo@gmail.com','Rua Coronel Perdig„o Sobrinho', 'Centro', 'Russas');
-
-
-
-
+    VALUES ('493.633.343-93',999212376, 'Cinara Rabelo','cinararabelo@gmail.com','Rua Coronel Perdig√£o Sobrinho', 'Centro', 'Russas');
 
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -80,16 +76,16 @@ INSERT INTO servico(nome, valor)
     VALUES ( 'Limpeza de ar condicionado', 20);
 
 INSERT INTO servico(nome, valor)
-    VALUES ( 'Trocas de Ûleos e filtros', 35);
+    VALUES ( 'Trocas de √≥leos e filtros', 35);
 
 INSERT INTO servico(nome, valor)
-    VALUES ( 'ServiÁos ElÈtricos', 27.5);
+    VALUES ( 'Servi√ßos El√©tricos', 27.5);
 
 INSERT INTO servico(nome, valor)
-    VALUES ( 'InjeÁ„o EletrÙnica', 60);
+    VALUES ( 'Inje√ß√£o Eletr√¥nica', 60);
 
 INSERT INTO servico(nome, valor)
-    VALUES ( 'ElÈtrica Geral', 51.75);
+    VALUES ( 'El√©trica Geral', 51.75);
 
 INSERT INTO servico(nome, valor)
     VALUES ( 'Pneus', 63.25);
@@ -188,7 +184,7 @@ INSERT INTO automovel(
 
 INSERT INTO oficina(
             cnpj, nome)
-    VALUES ('65.543.524/0001-74', 'CAR-TECH.MANUTEN«√O VEICULAR LTDA');
+    VALUES ('65.543.524/0001-74', 'CAR-TECH.MANUTEN√á√ÉO VEICULAR LTDA');
 
 -------------------------------------------------------------------------------------
 
