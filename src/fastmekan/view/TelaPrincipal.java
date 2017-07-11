@@ -48,6 +48,7 @@ public class TelaPrincipal extends Shell {
 	private Text text_3;
 	private Text text_4;
 	private Text text_5;
+	private Table table_automoveis;
 	
 
 	/**
@@ -328,6 +329,72 @@ public class TelaPrincipal extends Shell {
 		}
 
 		table_servicos.setSize(table_servicos.computeSize(SWT.DEFAULT, 150));
+		
+		TabItem tbtmNewItem = new TabItem(tabFolder, SWT.NONE);
+		tbtmNewItem.setText("Automoveis");
+		
+		table_automoveis = new Table(tabFolder, SWT.BORDER | SWT.FULL_SELECTION);
+		tbtmNewItem.setControl(table_automoveis);
+		table_automoveis.setHeaderVisible(true);
+		table_automoveis.setLinesVisible(true);
+		String[] colunas3 = {"CPF","Placa","Ano","Marca","Modelo"};
+		for (int i = 0; i < colunas3.length; i++) {
+			TableColumn column = new TableColumn(table_automoveis, SWT.NONE);
+			column.setText(colunas3[i]);
+		}
+		Connection conn3 = new Conexao().conectarBD();
+		String queryString3 = "SELECT * FROM automovel";
+	    PreparedStatement ps3;
+		try {
+			ps3 = conn3.prepareStatement(queryString3);
+		    ResultSet rs3 = ps3.executeQuery();
+		    while (rs3.next()) {
+				TableItem item = new TableItem(table_automoveis, SWT.NONE);
+				item.setText(0, rs3.getString("cpfc"));
+				item.setText(1, rs3.getString("placa"));
+				item.setText(2, rs3.getString("ano"));
+				item.setText(3, rs3.getString("marca"));
+				item.setText(4, rs3.getString("modelo"));
+		    }
+		} catch (SQLException cc) {
+			// TODO Auto-generated catch block
+			cc.printStackTrace();
+		}
+		
+		for (int i = 0; i < colunas3.length; i++) {
+			table_automoveis.getColumn(i).pack();
+		}
+
+		// Create context menu
+		Menu menuTable2 = new Menu(table_automoveis);
+		table_automoveis.setMenu(menuTable2);
+
+		// Create menu item
+		MenuItem miTest2 = new MenuItem(menuTable2, SWT.NONE);
+		miTest2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				Connection conn4 = new Conexao().conectarBD();
+				TableItem[] selection1 = table_automoveis.getSelection();
+				String nome = selection1[0].getText();
+				String queryString1 = "DELETE FROM automovel "
+						+            "where cpfc ="+"'"+nome+"'";
+				System.out.println(queryString1);
+				PreparedStatement ps1;
+				try {
+					ps1 = conn4.prepareStatement(queryString1);
+					ps1.executeQuery();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			   
+				
+			}
+		});
+		miTest2.setImage(SWTResourceManager.getImage(TelaPrincipal.class, "/toolbar/garbage.png"));
+		miTest2.setText("Excluir");
+		
 
 		createContents();
 	}
