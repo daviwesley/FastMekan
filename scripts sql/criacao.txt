@@ -51,7 +51,7 @@ ALTER TABLE funcionario
 CREATE TABLE automovel
 (
   cpfc character varying(30),
-  placa character varying(7) NOT NULL,
+  placa character varying(10) NOT NULL,
   ano integer,
   marca character varying(30),
   modelo character varying(30),
