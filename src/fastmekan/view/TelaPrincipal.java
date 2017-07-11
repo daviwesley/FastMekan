@@ -280,7 +280,7 @@ public class TelaPrincipal extends Shell {
 				new Utilidades();
 				new Utilidades();
 				String sql = "INSERT INTO servico" + 
-				            "(nome,valor,pk_id)"
+				            "(nome,valor,id)"
 						+ "VALUES ("+Utilidades.colocaAspaSimples(textserv_nome.getText())+","+
 		                            Utilidades.colocaAspaSimples(textserv_preco.getText())+","+
 						            Utilidades.colocaAspaSimples(textserv_id.getText())+")";
@@ -322,7 +322,7 @@ public class TelaPrincipal extends Shell {
 		    ResultSet rs1 = ps1.executeQuery();
 		    while (rs1.next()) {
 				TableItem item = new TableItem(table_servicos, SWT.NONE);
-				item.setText(0, rs1.getString("pk_id"));
+				item.setText(0, rs1.getString("id"));
 				item.setText(1, rs1.getString("nome"));
 				item.setText(2, rs1.getString("valor"));
 		    }
