@@ -117,6 +117,7 @@ public class TelaLogin extends Dialog {
 							shlLoginFastmekan.setVisible(false);
 					    }else{
 					    	infoLabel.setText("Usuario/Senha Incorreto");
+						infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 					    }
 					} catch (SQLException cc) {
 						// TODO Auto-generated catch block
@@ -151,6 +152,7 @@ public class TelaLogin extends Dialog {
 						shlLoginFastmekan.setVisible(false);
 				    }else{
 				    	infoLabel.setText("Usuario/Senha Incorreto");
+					infoLabel.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 				    
 				    }
 				} catch (SQLException cc) {
