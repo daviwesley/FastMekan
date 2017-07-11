@@ -4,13 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.swt.SWTResourceManager;
 import DAO.Conexao;
 import fastmekan.model.Utilidades;
-
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Rectangle;
@@ -27,9 +29,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
 
 public class TelaPrincipal extends Shell {
 	private Table table;
@@ -43,7 +48,7 @@ public class TelaPrincipal extends Shell {
 	private Text text_3;
 	private Text text_4;
 	private Text text_5;
-
+	
 
 	/**
 	 * Launch the application.
@@ -56,6 +61,12 @@ public class TelaPrincipal extends Shell {
 	 */
 	public TelaPrincipal(Display display) {
 		super(display, SWT.CLOSE | SWT.MIN | SWT.TITLE);
+		addShellListener(new ShellAdapter() {
+			@Override
+			public void shellClosed(ShellEvent arg0) {
+				System.exit(1);
+			}
+		});
 		setImage(SWTResourceManager.getImage(TelaPrincipal.class, "/toolbar/mechanic.png"));
 		setLayout(new FormLayout());
 		
@@ -106,6 +117,44 @@ public class TelaPrincipal extends Shell {
 		table.setBounds(10, 0, 85, 45);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
+		Menu menuTable = new Menu(table);
+		table.setMenu(menuTable);
+
+		// Create menu item
+		MenuItem miTest = new MenuItem(menuTable, SWT.NONE);
+		miTest.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				Connection conn = new Conexao().conectarBD();
+				TableItem[] selection = table.getSelection();
+				String nome = selection[0].getText();
+				String queryString = "DELETE FROM cliente "
+						+            "where nome ="+"'"+nome+"'";
+				System.out.println(queryString);
+				PreparedStatement ps;
+				try {
+					ps = conn.prepareStatement(queryString);
+					ps.executeQuery();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			   
+				
+			}
+		});
+		miTest.setImage(SWTResourceManager.getImage(TelaPrincipal.class, "/toolbar/garbage.png"));
+		miTest.setText("Excluir");
+
+		// Do not show menu, when no item is selected
+		table.addListener(SWT.MenuDetect, new Listener() {
+		  @Override
+		  public void handleEvent(Event event) {
+		    if (table.getSelectionCount() <= 0) {
+		      event.doit = false;
+		    }
+		  }
+		});
 		String[] colunas = {"Nome","Cpf","Telefone","E-mail","Rua","Bairro","Cidade"};
 		for (int i = 0; i < colunas.length; i++) {
 			TableColumn column = new TableColumn(table, SWT.NONE);
@@ -252,7 +301,7 @@ public class TelaPrincipal extends Shell {
 		table_servicos.setBounds(10, 134, 85, 45);
 		table_servicos.setHeaderVisible(true);
 		table_servicos.setLinesVisible(true);
-		String[] colunas1 = {"Id","Nome","Preço"};
+		String[] colunas1 = {"Id","Nome","PreÃ§o"};
 		for (int i = 0; i < colunas1.length; i++) {
 			TableColumn column = new TableColumn(table_servicos, SWT.NONE);
 			column.setText(colunas1[i]);
