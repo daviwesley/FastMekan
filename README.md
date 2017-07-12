@@ -13,7 +13,7 @@ O sistema proposto pela a equipe será de uma oficina de carros, motos e caminh�
 * Enviar para o cliente por meio de e-mail o orçamento do serviço
 
 
-#Configuração de Ambiente
+Configuração de Ambiente
 **Criação do Banco de Dados**
 
 * Instale o PostgreSQL https://www.postgresql.org/download/
